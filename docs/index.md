@@ -14,4 +14,6 @@ For full documentation visit [mkdocs.org](http://mkdocs.org).
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
+		open-skills/ # Open Skills Project
+			index.md # The Open Skills homepage
         ...       # Other markdown pages, images and other files.
