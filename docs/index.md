@@ -1,19 +1,6 @@
-# Welcome to MkDocs
+# DataAtWork Documentation
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+Technical documentation for DataAtWork, including detailed documentation of the
+[Open Skills Project](open-skills) and the [Training Provider Outcomes Toolkit](tpot).
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-		open-skills/ # Open Skills Project
-			index.md # The Open Skills homepage
-        ...       # Other markdown pages, images and other files.
