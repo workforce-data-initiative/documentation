@@ -2,3 +2,4 @@ site_name: DataAtWork
 pages:
     - Home: index.md
     - Open Skills: open-skills/index.md
+    - TPOT: tpot/index.md
