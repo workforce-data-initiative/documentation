@@ -82,3 +82,13 @@ systems](http://frictionlessdata.io/tools/#use-data-packages-with-) including
 [Excel](https://github.com/frictionlessdata/ideas/issues/41) and [Google
 Sheets](https://github.com/okfn/data.okfn.org/issues/24).
 
+## Data export
+
+Once the individual outcome data has been aggregated into ETP scorecards for
+each program, the data must be publicly accessible for others to analyze and
+build upon. We are in the process of developing an API that can serve these
+scorecards in a machine-readable manner that will allow for development of
+more sophisticated tools and analyses.  We are developing a framework to
+allow easy deployment of a web service for this API at [GitHub: etp-api](
+https://github.com/workforce-data-initiative/etp-api). An alpha version is
+available with sample data at [etp-api.dataatwork.org](http://etp-api.dataatwork.org/api/v0/).
