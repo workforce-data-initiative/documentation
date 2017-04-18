@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Open Skills - DataAtWork</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="..">DataAtWork</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="./">Open Skills</a>
+                    </li>
+                    <li >
+                        <a href="../tpot/">TPOT</a>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../tpot/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#open-skills-project">Open Skills Project</a></li>
+            <li><a href="#collecting-data">Collecting Data</a></li>
+            <li><a href="#processing">Processing</a></li>
+            <li><a href="#output">Output</a></li>
+            <li><a href="#code">Code</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="open-skills-project">Open Skills Project</h1>
+<p>The Open Skills Project is focused on providing a dynamic, up-to-date, locally-relevant, and normalized taxonomy of skills and jobs that builds on and expands on the Department of Labor’s O*NET data resources. This taxonomy is aimed at two groups:</p>
+<ul>
+<li>Developers, by way of the <a href="http://api.dataatwork.org/v1/spec/">Open Skills API</a></li>
+<li>Researchers, using tabular data sets (coming soon!)</li>
+</ul>
+<h2 id="collecting-data">Collecting Data</h2>
+<p>Information used to create the Open Skills API comes from a variety of sources:
+    - Public and private providers of job listings
+    - O*NET jobs and skills taxonomy (https://www.onetonline.org/)</p>
+<p>The job listings data sources are converted into a common job listing format, based on the schema.org Job Posting Schema (https://schema.org/JobPosting), and saved as JSON into an S3 folder according to the quarter(s) in which they are active.</p>
+<h2 id="processing">Processing</h2>
+<p>ONET taxonomy data is transformed into master tables of jobs and skills, and associations between jobs and skills.
+Job posting titles are cleaned, aggregated into geographical counts. The titles and descriptions are indexed into Elasticsearch to implement a rudimentary job title normalizer.</p>
+<h2 id="output">Output</h2>
+<p>A tabular version of each processed data set is uploaded to a publicly accessible S3 bucket for use by researchers. The processed data is also loaded into a relational database, which the Open Skills API queries to retrieve data in response to user requests.</p>
+<h2 id="code">Code</h2>
+<p>To produce this output, a variety of extraction and processing tasks are used across four different code repositories.</p>
+<ul>
+<li><a href="http://github.com/workforce-data-initiative/skills-utils">skills-utils</a> contains common utilities regarding things like hashing, Elasticsearch, S3, to be used by different parts of the Open Skills Project.</li>
+<li><a href="http://github.com/workforce-data-initiative/skills-ml">skills-ml</a> contains processing algorithms and integrations with various open datasets to help compute our jobs and skills taxonomy.</li>
+<li><a href="http://github.com/workforce-data-initiative/skills-airflow">skills-airflow</a> contains an orchestration workflow using the Airflow project that combines tasks from our skills-public-etl and skills-ml tasks to create aggregated data suitable for public consumption.</li>
+<li><a href="http://github.com/workforce-data-initiative/skills-api">skills-api</a> contains a Flask application that runs the Open Skills API, making available data generated by the skills-airflow repository for developer use.</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
